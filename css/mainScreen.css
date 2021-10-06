@@ -1,7 +1,12 @@
 #content{
   font-size: 40px;
-  margin-top: 25%;
+  margin-top: 20%;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+#write{
+  width: 100px;
+  height: 100px;
 }
