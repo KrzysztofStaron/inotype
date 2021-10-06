@@ -9,6 +9,17 @@
     <link rel="stylesheet" href="css/universal.css">
     <link rel="stylesheet" href="css/mainScreen.css">
     <title>Inotype</title>
+    <script type="text/javascript">
+
+      const start = () => document.getElementById('write').addEventListener("click", gotoWrite);
+      window.onload = start;
+
+      const gotoWrite = () => {
+        let url = window.location.href;
+        url = url.slice(0, url.length - 10) + "/write.html"
+        window.location.assign(url);
+      }
+    </script>
   </head>
   <body>
     <div id="container">
@@ -16,7 +27,7 @@
         <h2>
           Welcome on <h1>Inotype</h1>
         </h2>
-        <a href="write.html" id="write">Write</a>
+        <span id="write">Write</span>
       </div>
     </div>
   </body>
