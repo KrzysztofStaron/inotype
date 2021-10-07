@@ -16,7 +16,7 @@ window.onload = start;
 const arrayToText(array){
   let toReturn = "";
   for (var i = 0; i < array.length; i++) {
-    toReturn += array[i];
+    toReturn += array[i] + " ";
   }
   return toReturn;
 }
