@@ -12,3 +12,11 @@
   cursor: pointer;
   border: 2px solid #000;
 }
+
+/*
+  Write button text
+  It's made because this div replace button
+*/
+#write::before {
+  content: "Write";
+}
