@@ -6,6 +6,7 @@ const start = () =>{
   }
 
   console.log(toWrite);
+  document.getElementById('text').innerHTML=toWrite;
 }
 
 window.onload = start;
