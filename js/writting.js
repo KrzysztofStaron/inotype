@@ -13,7 +13,7 @@ window.onload = start;
 
 // Useful Functions
 
-const arrayToText(array){
+const arrayToText = array =>{
   let toReturn = "";
   for (var i = 0; i < array.length; i++) {
     toReturn += array[i] + " ";
