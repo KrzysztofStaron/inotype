@@ -34,14 +34,15 @@ const start = () =>{
 }
 window.onload = start;
 
-// Set Color
 const check = (obj) => {
+  // Check For Illegar Char
   if (obj.value == " " || !obj.value) {
     obj.value = "";
     console.error("Illegal Char");
     return ;
   }
 
+  // Set Color And Check Char Correctness 
   if (toWrite[activeId] == obj.value) {
     obj.style.color = "green";
   } else {
@@ -67,12 +68,13 @@ const checkFocusLegality = (obj) => {
   }
 }
 
+// Set Input Focus
 const setFocus = (id = activeId) => {
   document.getElementById('letter' + id).focus();
 }
 
+// Detect Special keys fe. Backspace
 const logKey = (e) => {
-  console.log(e.code);
   if (e.code == "Backspace") {
     activeId--;
     setFocus(activeId)
