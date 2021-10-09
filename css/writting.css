@@ -1,9 +1,40 @@
 /*
   write.html only
 */
-#text{
-  
+*{
+  margin: 0;
+  padding: 0;
 }
+
+.letter{
+  box-sizing: border-box;
+  font-size: 40px;
+  background-color: rgba(0, 0, 0, 0.1);
+  width: 35px;
+  height: 42px;
+  border: none;
+  text-align: center;
+}
+
+.word{
+  float: left;
+  margin-left: 5px;
+  margin-top: 5px;
+  border: 2px solid black;
+  border-bottom: 3px solid black;
+}
+/*
+  42 * 20 = 840
+*/
+#text{
+  width: 840px;
+  margin-left: 25%;
+}
+
+#content{
+  margin-top: 10%;
+}
+
 /*
 @keyframes example {
   0%   {background-color:red; left:0px; top:0px;}
