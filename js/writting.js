@@ -1,8 +1,9 @@
 let toWrite = "";
+let activeId = 0;
 
 const start = () => {
-  const letters=0;
   generate();
+  document.getElementById("letter0").focus();
 }
 
 const generate = () => {
@@ -15,12 +16,25 @@ const generate = () => {
     toWrite += word;
     const letters = word.split("");
     for (var q = 0; q < letters.length; q++) {
-      document.getElementById(`word${i}`).innerHTML += '<input type="text" class="letter" id=letter'+letterId+' maxlength="1" placeholder='+letters[q]+'>';
+      document.getElementById(`word${i}`).innerHTML += '<input onkeyup="check(this)" type="text" class="letter" id=letter'+letterId+' maxlength="1" placeholder='+letters[q]+'>';
       letterId++;
     }
   }
 }
 window.onload = start;
+
+const check = (obj) => {
+  console.log(obj.value);
+  console.log(obj.id.slice(6,obj.id.length));
+  if (toWrite[obj.id.slice(6,obj.id.length)] == obj.value) {
+    obj.style.color = "green";
+  }else {
+    obj.style.color = "red";
+  }
+  activeId++;
+  document.getElementById('letter'+activeId).focus();
+}
+
 
 // Useful Functions
 
