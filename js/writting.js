@@ -32,15 +32,16 @@ const check = (obj) => {
   // Set Color
   if (toWrite[obj.id.slice(6,obj.id.length)] == obj.value) {
     obj.style.color = "green";
-  }else {
+  } else {
     obj.style.color = "red";
   }
-  activeId++;
   // Loop
-  if (!document.getElementById('letter'+activeId)) {
+  if (!document.getElementById('letter' + activeId+1)) {
     generate();
     return ;
   }
+
   // Set Focus To Next Input
+  activeId++;
   document.getElementById('letter'+activeId).focus();
 }
