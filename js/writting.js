@@ -19,26 +19,33 @@ const generate = () => {
     toWrite += word;
     const letters = word.split("");
     for (var q = 0; q < letters.length; q ++) {
-      document.getElementById(`word${i}`).innerHTML += '<input onkeyup="check(this)" type="text" class="letter" id=letter'+letterId+' maxlength="1" placeholder='+letters[q]+'>';
+      document.getElementById(`word${i}`).innerHTML += '<input onkeyup="check(this)" onfocus="checkFocusLegality(this)" type="text" class="letter" id=letter'+letterId+' maxlength="1" placeholder='+letters[q]+'>';
       letterId++;
     }
   }
 
   // Set Focus At First Letter
-  document.getElementById("letter0").focus();
+  setFocus(activeId);
 }
 window.onload = generate;
 
-// Checking The Correctness Of The Char
+// Set Color
 const check = (obj) => {
-  activeId++;
-
-  // Set Color
-  if (toWrite[obj.id.slice(6,obj.id.length)] == obj.value) {
-    obj.style.color = "green";
+  console.clear();
+for (var i = 0; i < activeId+1; i++) {
+  if (document.getElementById('letter' + i)) {
+    let oldObj = document.getElementById('letter' + i);
+    console.log(toWrite[i] +" | "+ oldObj.value);
+    if (toWrite[i] == oldObj.value) {
+      oldObj.style.color = "green";
+    } else {
+      oldObj.style.color = "red";
+    }
   } else {
-    obj.style.color = "red";
+    console.error("not gut");
   }
+}
+  activeId++;
 
   // Loop
   if (!document.getElementById('letter' + activeId)) {
@@ -47,5 +54,17 @@ const check = (obj) => {
   }
 
   // Set Focus To Next Input
-  document.getElementById('letter'+activeId).focus();
+  setFocus(activeId);
+}
+
+// Fix Focus
+const checkFocusLegality = (obj) => {
+  if (obj.id != "letter"+activeId){
+    setFocus(activeId);
+    console.log("Illegal Focus Detected");
+  }
+}
+
+const setFocus = (id = activeId) => {
+  document.getElementById('letter' + id).focus();
 }
