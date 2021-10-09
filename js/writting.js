@@ -56,6 +56,9 @@ const check = (obj, force = false) => {
   activeId++;
 
   // Loop
+  if (activeId < 0) {
+    activeId = 0;
+  }
   if (!document.getElementById('letter' + activeId)) {
     generate();
     return ;
@@ -63,6 +66,18 @@ const check = (obj, force = false) => {
 
   // Set Focus To Next Input
   setFocus(activeId);
+}
+
+// Detect Special keys fe. Backspace
+const logKey = (e) => {
+  // Fix Special Keys
+  if ((e.keyCode >= 41 && e.keyCode <= 90) || (e.keyCode >= 97 && e.keyCode <= 122)) {
+    check(document.getElementById('letter' + activeId), true)
+  }
+  if (e.code == "Backspace") {
+    activeId--;
+    setFocus(activeId)
+  }
 }
 
 // Fix Focus
@@ -76,15 +91,4 @@ const checkFocusLegality = (obj) => {
 // Set Input Focus
 const setFocus = (id = activeId) => {
   document.getElementById('letter' + id).focus();
-}
-
-// Detect Special keys fe. Backspace
-const logKey = (e) => {
-  if ((e.keyCode >= 41 && e.keyCode <= 90) || (e.keyCode >= 97 && e.keyCode <= 122)) {
-    check(document.getElementById('letter' + activeId), true)
-  }
-  if (e.code == "Backspace") {
-    activeId--;
-    setFocus(activeId)
-  }
 }
