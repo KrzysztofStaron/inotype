@@ -34,12 +34,14 @@ const start = () =>{
 }
 window.onload = start;
 
-const check = (obj) => {
+const check = (obj, force = false) => {
   // Check For Illegar Char
   if (obj.value == " " || !obj.value) {
     obj.value = "";
     console.error("Illegal Char");
     return ;
+  } else if (force) {
+    obj.value = toWrite[activeId];
   }
 
   // Set Color And Check Char Correctness
@@ -75,6 +77,9 @@ const setFocus = (id = activeId) => {
 
 // Detect Special keys fe. Backspace
 const logKey = (e) => {
+  if ((e.keyCode >= 41 && e.keyCode <= 90) || (e.keyCode >= 97 && e.keyCode <= 122)) {
+    check(document.getElementById('letter' + activeId), true)
+  }
   if (e.code == "Backspace") {
     activeId--;
     setFocus(activeId)
