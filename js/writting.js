@@ -1,15 +1,17 @@
+// Variables
 let toWrite = "";
 let activeId = 0;
-
-const start = () => {
-  generate();
-}
+let endPoints = [];
 
 const generate = () => {
+  // Clear
   toWrite = "";
   activeId = 0;
+  endPoints = [];
   let letterId = 0;
   document.getElementById('text').innerHTML = "";
+
+  // Generate Text
   for (var i = 0; i < 10; i++) {
     document.getElementById('text').innerHTML += '<div class="word" id=word'+i+'></div>';
     const word = words[Math.floor(Math.random() * words.length)];
@@ -20,33 +22,25 @@ const generate = () => {
       letterId++;
     }
   }
+  // Set Focus At First Letter
   document.getElementById("letter0").focus();
 }
-window.onload = start;
+window.onload = generate;
 
+// Checking The Correctness Of The Char
 const check = (obj) => {
-  console.log(obj.value);
-  console.log(obj.id.slice(6,obj.id.length));
+  // Set Color
   if (toWrite[obj.id.slice(6,obj.id.length)] == obj.value) {
     obj.style.color = "green";
   }else {
     obj.style.color = "red";
   }
   activeId++;
+  // Loop
   if (!document.getElementById('letter'+activeId)) {
     generate();
     return ;
   }
+  // Set Focus To Next Input
   document.getElementById('letter'+activeId).focus();
-}
-
-
-// Useful Functions
-
-const arrayToText = (array) =>{
-  let toReturn = "";
-  for (var i = 0; i < array.length; i++) {
-    toReturn += array[i] + " ";
-  }
-  return toReturn;
 }
