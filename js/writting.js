@@ -3,11 +3,11 @@ let activeId = 0;
 
 const start = () => {
   generate();
-  document.getElementById("letter0").focus();
 }
 
 const generate = () => {
   toWrite = "";
+  activeId = 0;
   let letterId = 0;
   document.getElementById('text').innerHTML = "";
   for (var i = 0; i < 10; i++) {
@@ -20,6 +20,7 @@ const generate = () => {
       letterId++;
     }
   }
+  document.getElementById("letter0").focus();
 }
 window.onload = start;
 
@@ -32,6 +33,10 @@ const check = (obj) => {
     obj.style.color = "red";
   }
   activeId++;
+  if (!document.getElementById('letter'+activeId)) {
+    generate();
+    return ;
+  }
   document.getElementById('letter'+activeId).focus();
 }
 
