@@ -15,7 +15,7 @@ const generate = () => {
   // Generate Text
   for (var i = 0; i < 10; i++) {
     document.getElementById('text').innerHTML += '<div class="word" id=word'+i+'></div>';
-    const word = words[Math.floor(Math.random() * words.length)];
+    const word = words[Math.floor(Math.random() * words.length)] + " ";
     toWrite += word;
     const letters = word.split("");
     for (var q = 0; q < letters.length; q ++) {
