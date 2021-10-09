@@ -31,20 +31,19 @@ window.onload = generate;
 
 // Set Color
 const check = (obj) => {
-  console.clear();
-for (var i = 0; i < activeId+1; i++) {
-  if (document.getElementById('letter' + i)) {
-    let oldObj = document.getElementById('letter' + i);
-    console.log(toWrite[i] +" | "+ oldObj.value);
-    if (toWrite[i] == oldObj.value) {
-      oldObj.style.color = "green";
-    } else {
-      oldObj.style.color = "red";
-    }
-  } else {
-    console.error("not gut");
+  if (obj.value == " ") {
+    obj.value = "";
+    console.error("Illegal Char");
+    return ;
   }
-}
+  if (!obj.value) {
+    obj.value = toWrite[activeId]
+  }
+  if (toWrite[activeId] == obj.value) {
+    obj.style.color = "green";
+  } else {
+    obj.style.color = "red";
+  }
   activeId++;
 
   // Loop
