@@ -46,7 +46,7 @@
 #typing::before{
   content:"Typing...";
   animation-name: typing;
-  animation-duration: 2s;
+  animation-duration: 5s;
   animation-iteration-count: infinite;
 }
 
