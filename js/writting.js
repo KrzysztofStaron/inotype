@@ -42,7 +42,7 @@ const check = (obj) => {
     return ;
   }
 
-  // Set Color And Check Char Correctness 
+  // Set Color And Check Char Correctness
   if (toWrite[activeId] == obj.value) {
     obj.style.color = "green";
   } else {
@@ -64,7 +64,7 @@ const check = (obj) => {
 const checkFocusLegality = (obj) => {
   if (obj.id != "letter"+activeId){
     setFocus(activeId);
-    console.log("Illegal Focus Detected");
+    console.error("Illegal Focus Detected");
   }
 }
 
