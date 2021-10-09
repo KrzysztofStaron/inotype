@@ -36,7 +36,7 @@ window.onload = start;
 
 const check = (obj, force = false) => {
   // Check For Illegar Char
-  if (obj.value == " " || !obj.value) {
+  if (!obj.value) {
     obj.value = "";
     console.error("Illegal Char");
     return ;
