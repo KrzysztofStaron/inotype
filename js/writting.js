@@ -46,9 +46,9 @@ const check = (obj, force = false) => {
 
   // Set Color And Check Char Correctness
   if (toWrite[activeId] == obj.value) {
-    obj.style.color = "green";
+    obj.style.color = "green"; // Correct Char
   } else {
-    obj.style.color = "red";
+    obj.style.color = "red"; // Wrong Char
   }
   activeId++;
 
