@@ -27,18 +27,21 @@ const generate = () => {
   // Set Focus At First Letter
   setFocus(activeId);
 }
-window.onload = generate;
+
+const start = () =>{
+  document.addEventListener('keydown', logKey);
+  generate();
+}
+window.onload = start;
 
 // Set Color
 const check = (obj) => {
-  if (obj.value == " ") {
+  if (obj.value == " " || !obj.value) {
     obj.value = "";
     console.error("Illegal Char");
     return ;
   }
-  if (!obj.value) {
-    obj.value = toWrite[activeId]
-  }
+
   if (toWrite[activeId] == obj.value) {
     obj.style.color = "green";
   } else {
@@ -66,4 +69,12 @@ const checkFocusLegality = (obj) => {
 
 const setFocus = (id = activeId) => {
   document.getElementById('letter' + id).focus();
+}
+
+const logKey = (e) => {
+  console.log(e.code);
+  if (e.code == "Backspace") {
+    activeId--;
+    setFocus(activeId)
+  }
 }
