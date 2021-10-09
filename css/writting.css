@@ -13,15 +13,23 @@
   width: 35px;
   height: 42px;
   border: none;
+  border-bottom: 3px solid black;
   text-align: center;
+  caret-color: transparent;
+}
+
+.letter:focus{
+  outline: none;
+  color: white;
 }
 
 .word{
   float: left;
   margin-left: 5px;
   margin-top: 5px;
-  border: 2px solid black;
-  border-bottom: 3px solid black;
+  border-left: 2px solid black;
+  border-top: 2px solid black;
+  border-right: 2px solid black;
 }
 /*
   42 * 20 = 840
