@@ -26,7 +26,7 @@ const generate = () => {
   toWrite = "";
   activeId = 0;
   let letterId=0;
-  const textLength = 15;
+  const textLength = 10;
   const worldsInLine=5;
   document.getElementById('text').innerHTML = '';
   for (var w = 0; w < textLength; w++) {
@@ -39,7 +39,7 @@ const generate = () => {
 
     word.split("").forEach((item) => {
       if (item != " ") {
-        document.getElementById('w'+w).innerHTML += '<letter id=l'+letterId+' class="" >'+item+'</letter>';
+        document.getElementById('w'+w).innerHTML += '<letter id=l'+letterId+' >'+item+'</letter>';
       } else {
         document.getElementById('w'+w).innerHTML += '<letter id=l'+letterId+' name="space">'+item+'</letter>';
       }
@@ -65,38 +65,42 @@ const logKey = (e) => {
     if (activeId-1 < 0) {
       return ;
     }
-    if (document.getElementById('l'+activeId).name == "space") {
-      document.getElementById('l'+activeId).innerHTML = " ";
+    if (getLetter().name == "space") {
+      getLetter().innerHTML = " ";
     }
-    document.getElementById('l'+activeId).className = "";
+    getLetter().className = "";
     activeId--;
-    if (document.getElementById('l'+activeId).className == "correct" && activeId >= 0){
+    if (getLetter().className == "correct" && activeId >= 0){
       writenChars--;
     }
-    document.getElementById('l'+activeId).className = "active";
+    getLetter().className = "active";
     return ;
   }
   if((e.keyCode >= 65 && e.keyCode <= 90) || char == " ") {
-    if (document.getElementById('l'+activeId).name == "space") {
-      document.getElementById('l'+activeId).innerHTML = " ";
+    if (getLetter().name == "space") {
+      getLetter().innerHTML = " ";
     }
     if (char == toWrite[activeId]) {
-      document.getElementById('l'+activeId).className = "correct";
+      getLetter().className = "correct";
       writenChars++;
     }else {
-      document.getElementById('l'+activeId).className = "wrong";
+      getLetter().className = "wrong";
       if (writenChars-1 >= 0) {
         writenChars--;
       }
       if (toWrite[activeId] == " ") {
-        document.getElementById('l'+activeId).className = "space";
-        document.getElementById('l'+activeId).name = "space";
-        document.getElementById('l'+activeId).innerHTML = e.key;
+        getLetter().className = "space";
+        getLetter().name = "space";
+        getLetter().innerHTML = e.key;
       }
     }
     activeId++;
-    document.getElementById('l'+activeId).className = "active";
+    getLetter().className = "active";
     //e == 69
   }
 
+}
+
+const getLetter = () => {
+  return document.getElementById('l'+activeId);
 }
