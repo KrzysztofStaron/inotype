@@ -68,11 +68,9 @@ const logKey = (e) => {
     if (document.getElementById('l'+activeId).name == "space") {
       document.getElementById('l'+activeId).innerHTML = " ";
     }
-    if (document.getElementById('l'+activeId).className == "correct") {
-      writenChars--;
-    }
     document.getElementById('l'+activeId).className = "";
     activeId--;
+    if (document.getElementById('l'+activeId).className == "correct" && activeId >= 0) writenChars--;
     document.getElementById('l'+activeId).className = "active";
     return ;
   }
