@@ -25,6 +25,10 @@ letter{
   animation-iteration-count: infinite;
 }
 
+.space{
+  color: #880808;
+}
+
 @keyframes blinking {
   0%   {color: rgba(255, 255, 255, 0.8);background-color: rgba(255, 255, 255, 0.1);}
   50% {color: rgba(0, 0, 0, 0.9);background-color: rgba(255, 255, 255, 0.2);}
