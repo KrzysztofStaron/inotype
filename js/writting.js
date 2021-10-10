@@ -70,7 +70,9 @@ const logKey = (e) => {
     }
     document.getElementById('l'+activeId).className = "";
     activeId--;
-    if (document.getElementById('l'+activeId).className == "correct" && activeId >= 0) writenChars--;
+    if (document.getElementById('l'+activeId).className == "correct" && activeId >= 0){
+      writenChars--;
+    }
     document.getElementById('l'+activeId).className = "active";
     return ;
   }
