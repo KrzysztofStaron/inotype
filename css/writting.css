@@ -1,62 +1,39 @@
-/*
-  write.html only
-*/
-*{
-  margin: 0;
-  padding: 0;
+letter{
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  color: rgba(0, 0, 0, 0.3);
+  font-size: 50px
 }
 
-.letter{
-  box-sizing: border-box;
-  font-size: 40px;
-  background-color: rgba(0, 0, 0, 0.1);
-  width: 35px;
-  height: 42px;
-  border: none;
-  /*border-bottom: 3px solid black;*/
-  text-align: center;
-  caret-color: transparent;
+.correct{
+  color: green;
 }
 
-.letter:focus{
-  outline: none;
+.wrong{
+  color: red;
+}
+
+.active{
+  color: rgba(255, 255, 255, 0.75);
   background-color: rgba(255, 255, 255, 0.1);
-  color: white;
+
+  animation-name: blink;
+  animation-duration: 0.5s;
 }
 
-.word{
-  float: left;
-  margin-left: 5px;
-  margin-top: 5px;
-  /*border-left: 2px solid black;
-  border-top: 2px solid black;
-  border-right: 2px solid black;*/
-}
-/*
-  42 * 20 = 840
-*/
-#text{
-  width: 840px;
-  margin-left: 25%;
+.space{
+  color: #880808;
 }
 
-#content{
-  margin-top: 10%;
+@keyframes blink {
+  0%   {color: rgba(255, 255, 255, 1);background-color: rgba(0, 0, 0, 0.3)}
+  100% {color: rgba(255, 255, 255, 0.75);background-color: rgba(255, 255, 255, 0.1)}
 }
 
-#typing::before{
-  content:"Typing...";
-  animation-name: typing;
-  animation-duration: 5s;
-  animation-iteration-count: infinite;
-}
-
-@keyframes typing  {
-  0%   {content:"Typing...";}
-  17%  {content:"Typing..";}
-  34%  {content:"Typing.";}
-  51%  {content:"Typing";}
-  68%  {content:"Typing.";}
-  85%  {content:"Typing..";}
-  100%  {content:"Typing...";}
+#timer{
+  font-size: 60px;
 }

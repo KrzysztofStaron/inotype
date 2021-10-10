@@ -13,7 +13,9 @@
     <title>Inotype</title>
     <script type="text/javascript">
 
-      const start = () => document.getElementById('write').addEventListener("click", gotoWrite);
+      const start = () => {
+        document.getElementById('write').addEventListener("click", gotoWrite);
+      }
       window.onload = start;
 
       const gotoWrite = () => {
@@ -29,7 +31,7 @@
         <h2>
           Welcome on <h1>Inotype</h1>
         </h2>
-        <span id="write"></span>
+        <span id="write" class="write"></span>
       </div>
     </div>
   </body>
