@@ -61,9 +61,7 @@ const logKey = (e) => {
     clearInterval(tick)
     sumaryScreen();
   }
-  if (!document.getElementById('l0')) {
-    return ;
-  }
+  if (!document.getElementById('l0')) return ;
   if (activeId == toWrite.length-1) {
     generate();
     return ;
