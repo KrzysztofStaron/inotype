@@ -13,7 +13,7 @@ const settingsClick = () => {
 const open = () => {
   let content = document.getElementById('content');
   html = content.innerHTML;
-  content.innerHTML = '<>'
+  content.innerHTML = 'Settings'
 }
 
 const close = () => {
