@@ -30,6 +30,7 @@ letter{
 
 #timer{
   font-size: 60px;
+  color: rgba(0, 0, 0, 0.7);
 }
 
 .buttonBuyNo{
@@ -51,6 +52,7 @@ letter{
 
 #setting{
   cursor: pointer;
+  opacity: 0.6;
   transition: 0.5s;
 }
 
