@@ -37,7 +37,7 @@ const generate = () => {
   document.getElementById('text').innerHTML = '';
   for (var w = 0; w < textLength; w++) {
     let word = words[Math.floor(Math.random() * words.length)];
-    if ((w%worldsInLine != 0 || w == 0) && w != textLength-1){
+    if (w == 0 && w != textLength-1){
       word += " ";
     }
     toWrite += word;
