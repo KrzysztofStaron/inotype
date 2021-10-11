@@ -1,7 +1,7 @@
 let toWrite = "";
 let activeId = 0;
 let writenChars = 0;
-let time = 60.0;
+let time = 2.0;
 
 const start = () => {
   document.addEventListener('keydown', logKey);
@@ -11,8 +11,8 @@ const start = () => {
 var tick = setInterval(function() {
   if (time <= 0) {
     clearInterval(tick)
-    time = 0;
     document.getElementById('timer').innerHTML = "0";
+    return ;
   }
   time -= 0.1
   time = Math.round(time * 10) / 10;
