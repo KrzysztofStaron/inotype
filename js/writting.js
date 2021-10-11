@@ -11,7 +11,7 @@ const start = () => {
 }
 
 const tick = setInterval(function() {
-  if (!tartTimer) return ;
+  if (!startTimer) return ;
   if (time <= 0) {
     clearInterval(tick)
     document.getElementById('timer').innerHTML = "0";
