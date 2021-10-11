@@ -1,7 +1,7 @@
 let toWrite = "";
 let activeId = 0;
 let writenChars = 0;
-let startTime=60;
+let startTime=30;
 let time;
 let startTimer = false;
 
@@ -63,6 +63,9 @@ const generate = () => {
 
 const logKey = (e) => {
   const char = e.key.toLowerCase();
+  if (char == "") {
+
+  }
   if (!document.getElementById('l0')) {
     return ;
   }
