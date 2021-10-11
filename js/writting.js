@@ -1,10 +1,12 @@
+let startTime=30;
+
+
+let startTimer = false;
+let time;
 let toWrite = "";
 let activeId = 0;
 let writenChars = 0;
 let writenWords = 0;
-let startTime=30;
-let time;
-let startTimer = false;
 
 const start = () => {
   document.addEventListener('keydown', logKey);
@@ -13,28 +15,15 @@ const start = () => {
   generate();
 }
 
-const tick = setInterval(function() {
-  if (!startTimer) return ;
-  if (time <= 0) {
-    clearInterval(tick)
-    document.getElementById('timer').innerHTML = "0";
-    sumaryScreen();
-    return ;
-  }
-  time -= 0.1
-  time = Math.round(time * 10) / 10;
-  if (time%1 == 0) {time += ".0"}
-  document.getElementById('timer').innerHTML = time;
-}, 100)
-
 window.onload = start;
 
 const generate = () => {
+  const textLength = 12;
+  const worldsInLine = 4;
+
   toWrite = "";
   activeId = 0;
   let letterId=0;
-  const textLength = 10;
-  const worldsInLine=5;
   document.getElementById('text').innerHTML = '';
   for (var w = 0; w < textLength; w++) {
     let word = words[Math.floor(Math.random() * words.length)];
@@ -63,6 +52,8 @@ const generate = () => {
 }
 
 
+
+
 /*Log key*/
 const logKey = (e) => {
   const char = e.key.toLowerCase();
@@ -83,9 +74,10 @@ const logKey = (e) => {
     }
     if (getLetter().name == "space") {
       getLetter().innerHTML = " ";
-      if (writenWords-1 >= 0) {
+      if (writenWords-1 > -1) {
         writenWords--;
       }
+      console.log(writenWords);
     }
     getLetter().className = "";
     activeId--;
@@ -123,6 +115,20 @@ const logKey = (e) => {
   }
 
 }
+
+const tick = setInterval(function() {
+  if (!startTimer) return ;
+  if (time <= 0) {
+    clearInterval(tick)
+    document.getElementById('timer').innerHTML = "0";
+    sumaryScreen();
+    return ;
+  }
+  time -= 0.1
+  time = Math.round(time * 10) / 10;
+  if (time%1 == 0) {time += ".0"}
+  document.getElementById('timer').innerHTML = time;
+}, 100)
 
 const getLetter = () => {
   return document.getElementById('l'+activeId);
