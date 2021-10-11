@@ -1,6 +1,7 @@
 let toWrite = "";
 let activeId = 0;
 let writenChars = 0;
+let writenWords = 0;
 let startTime=30;
 let time;
 let startTimer = false;
@@ -61,6 +62,8 @@ const generate = () => {
   console.log(toWrite);
 }
 
+
+/*Log key*/
 const logKey = (e) => {
   const char = e.key.toLowerCase();
   if (char == "f1") {
@@ -80,6 +83,9 @@ const logKey = (e) => {
     }
     if (getLetter().name == "space") {
       getLetter().innerHTML = " ";
+      if (writenWords-1 >= 0) {
+        writenWords--;
+      }
     }
     getLetter().className = "";
     activeId--;
@@ -97,6 +103,9 @@ const logKey = (e) => {
     if (char == toWrite[activeId]) {
       getLetter().className = "correct";
       writenChars++;
+      if (toWrite[activeId] == " ") {
+        writenWords++;
+      }
     }else {
       getLetter().className = "wrong";
       if (writenChars-1 >= 0) {
