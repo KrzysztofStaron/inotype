@@ -1,17 +1,19 @@
 let toWrite = "";
 let activeId = 0;
 let writenChars = 0;
-let time = 2.0;
+let time = 0.1;
 
 const start = () => {
   document.addEventListener('keydown', logKey);
+  document.getElementById('timer').innerHTML = time;
   generate();
 }
 
-var tick = setInterval(function() {
+const tick = setInterval(function() {
   if (time <= 0) {
     clearInterval(tick)
     document.getElementById('timer').innerHTML = "0";
+    sumaryScreen();
     return ;
   }
   time -= 0.1
