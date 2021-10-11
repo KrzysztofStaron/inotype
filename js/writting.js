@@ -63,8 +63,9 @@ const generate = () => {
 
 const logKey = (e) => {
   const char = e.key.toLowerCase();
-  if (char == "") {
-
+  if (char == "f1") {
+    clearInterval(tick)
+    sumaryScreen();
   }
   if (!document.getElementById('l0')) {
     return ;

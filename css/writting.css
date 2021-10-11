@@ -43,7 +43,7 @@ letter{
   font-size: 50px;
   border: 2px solid #000;
   border-radius: 5%;
-  background-color: rgba(0, 0, 0, 0.05);
+  background-color: rgba(0, 0, 0, 0.1);
   transition: 0.5s;
 }
 
