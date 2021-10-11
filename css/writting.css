@@ -38,7 +38,7 @@ letter{
   font-size: 60px;
 }
 
-#again{
+.buttonBuyNo{
   cursor: pointer;
   font-size: 50px;
   border: 2px solid #000;
@@ -51,6 +51,6 @@ letter{
   content: "Again?";
 }
 
-#again:hover {
+.buttonBuyNo:hover {
   background-color: rgba(0, 0, 0, 0.3);
 }

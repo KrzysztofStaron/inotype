@@ -12,3 +12,8 @@ body {
 #container{
   margin-top: 15%;
 }
+
+a{
+  color: rgba(0, 0, 0, 0.8);
+  text-decoration: none;
+}
