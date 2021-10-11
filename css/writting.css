@@ -37,3 +37,20 @@ letter{
 #timer{
   font-size: 60px;
 }
+
+#again{
+  cursor: pointer;
+  font-size: 50px;
+  border: 2px solid #000;
+  border-radius: 5%;
+  background-color: rgba(0, 0, 0, 0.05);
+  transition: 0.5s;
+}
+
+#again::before {
+  content: "Again?";
+}
+
+#again:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}

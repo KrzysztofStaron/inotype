@@ -1,11 +1,13 @@
 let toWrite = "";
 let activeId = 0;
 let writenChars = 0;
-let time = 0.1;
+let startTime=1;
+let time;
 let startTimer = false;
 
 const start = () => {
   document.addEventListener('keydown', logKey);
+  time = startTime;
   document.getElementById('timer').innerHTML = time;
   generate();
 }
@@ -61,6 +63,9 @@ const generate = () => {
 
 const logKey = (e) => {
   const char = e.key.toLowerCase();
+  if (!document.getElementById('l0')) {
+    return ;
+  }
   if (activeId == toWrite.length-1) {
     generate();
     return ;
