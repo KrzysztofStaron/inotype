@@ -1,7 +1,7 @@
 let toWrite = "";
 let activeId = 0;
 let writenChars = 0;
-let startTime=1;
+let startTime=60;
 let time;
 let startTimer = false;
 
