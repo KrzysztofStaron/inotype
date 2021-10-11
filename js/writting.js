@@ -10,6 +10,7 @@ let writenWords = 0;
 
 const start = () => {
   document.addEventListener('keydown', logKey);
+  document.getElementById('setting').addEventListener('click', settingsClick);
   time = startTime;
   document.getElementById('timer').innerHTML = time+".0";
   generate();
@@ -115,17 +116,18 @@ const logKey = (e) => {
 }
 
 const tick = setInterval(function() {
-  if (!startTimer) return ;
+  let timer = document.getElementById('timer');
+  if (!startTimer || !timer) return ;
   if (time <= 0) {
     clearInterval(tick)
-    document.getElementById('timer').innerHTML = "0";
+    timer.innerHTML = "0";
     sumaryScreen();
     return ;
   }
   time -= 0.1
   time = Math.round(time * 10) / 10;
   if (time%1 == 0) {time += ".0"}
-  document.getElementById('timer').innerHTML = time;
+  timer.innerHTML = time;
 }, 100)
 
 const getLetter = () => {
