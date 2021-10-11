@@ -2,6 +2,7 @@ let toWrite = "";
 let activeId = 0;
 let writenChars = 0;
 let time = 0.1;
+let startTimer = false;
 
 const start = () => {
   document.addEventListener('keydown', logKey);
@@ -10,7 +11,7 @@ const start = () => {
 }
 
 const tick = setInterval(function() {
-  if (time <= 0) {
+  if (time <= 0 && startTimer) {
     clearInterval(tick)
     document.getElementById('timer').innerHTML = "0";
     sumaryScreen();
@@ -79,6 +80,7 @@ const logKey = (e) => {
     return ;
   }
   if((e.keyCode >= 65 && e.keyCode <= 90) || char == " ") {
+    startTimer = true;
     if (getLetter().name == "space") {
       getLetter().innerHTML = " ";
     }
