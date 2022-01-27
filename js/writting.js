@@ -19,14 +19,14 @@ const start = () => {
 window.onload = start;
 
 const generate = () => {
-  const textLength = 12;
+  const textLength = 12 + 1;
   const worldsInLine = 4;
 
   toWrite = "";
   activeId = 0;
   let letterId=0;
   document.getElementById('text').innerHTML = '';
-  for (var w = 0; w < textLength; w++) {
+  for (var w = 1; w < textLength; w++) {
     let word = words[Math.floor(Math.random() * words.length)];
     if ((w%worldsInLine != 0 || w == 0) && w != textLength-1){
       word += " ";
