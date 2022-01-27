@@ -75,12 +75,12 @@ const logKey = (e) => {
       return ;
     }
     if (getLetter().name == "space") {
-      getLetter().innerHTML = " ";
-      if (writenWords-1 > -1) {
+      if (writenWords > 0 && getLetter().innerHTML == " ") {
         writenWords--;
       }
-      console.log(writenWords);
+      getLetter().innerHTML = " ";
     }
+
     getLetter().className = "";
     activeId--;
     if (getLetter().className == "correct" && activeId >= 0){
@@ -99,6 +99,7 @@ const logKey = (e) => {
       writenChars++;
       if (toWrite[activeId] == " ") {
         writenWords++;
+        console.log("write new word");
       }
     }else {
       getLetter().className = "wrong";
