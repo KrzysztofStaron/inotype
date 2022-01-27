@@ -3,7 +3,6 @@ let startTime=30;
 
 let startTimer = false;
 let time;
-let toWrite = "";
 let activeId = 0;
 let writenChars = 0;
 let writenWords = 0;
@@ -22,7 +21,7 @@ const generate = () => {
   const textLength = 12 + 1;
   const worldsInLine = 4;
 
-  toWrite = "";
+  let toWrite = "";
   activeId = 0;
   let letterId=0;
   document.getElementById('text').innerHTML = '';
