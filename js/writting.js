@@ -22,7 +22,7 @@ const generate = () => {
   const textLength = 12 + 1;
   const worldsInLine = 4;
 
-  let toWrite = "";
+  toWrite = "";
   activeId = 0;
   let letterId=0;
   document.getElementById('text').innerHTML = '';
