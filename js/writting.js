@@ -3,6 +3,7 @@ let startTime=30;
 
 let startTimer = false;
 let time;
+let toWrite = "";
 let activeId = 0;
 let writenChars = 0;
 let writenWords = 0;
