@@ -31,6 +31,9 @@ const generate = () => {
     if ((w%worldsInLine != 0 || w == 0) && w != textLength-1){
       word += " ";
     }
+    if (w%worldsInLine == 0){
+      word += " ";
+    }
     toWrite += word;
     document.getElementById('text').innerHTML += '<word id=w'+w+'></word>'
 
@@ -38,7 +41,7 @@ const generate = () => {
       if (item != " ") {
         document.getElementById('w'+w).innerHTML += '<letter id=l'+letterId+' >'+item+'</letter>';
       } else {
-        document.getElementById('w'+w).innerHTML += '<letter id=l'+letterId+' name="space">'+item+'</letter>';
+        document.getElementById('w'+w).innerHTML += '<letter id=l'+letterId+' name="space">&nbsp</letter>';
       }
 
       letterId++;
